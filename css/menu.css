@@ -1,0 +1,67 @@
+#list-menu-responsive {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 280px;
+    height: 100vh;
+    background: #222;
+    color: #fff;
+    padding: 20px;
+    overflow-y: auto;
+    z-index: 9998;
+}
+
+#list-menu-responsive.hidden {
+    display: none;
+}
+
+#lmr-close {
+    display: inline-block;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.lmr-title {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    margin: 15px 0;
+}
+
+#list-menu-responsive ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+#list-menu-responsive ul > li {
+    margin-bottom: 10px;
+}
+
+#list-menu-responsive a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    display: block;
+}
+
+#responsive-menu-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #222;
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 4px;
+    z-index: 9999;
+    font-size: 13px;
+    cursor: pointer;
+    user-select: none;
+    transition: opacity .3s;
+}
+
+#responsive-menu-btn.inactive {
+    opacity: .4;
+    pointer-events: none;
+}
