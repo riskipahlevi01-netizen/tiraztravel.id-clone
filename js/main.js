@@ -16,18 +16,27 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   }
 
-  // Deteksi apakah halaman di root atau subfolder
-  const basePath =
-    window.location.pathname.includes("/hubungi-kami") ||
-    window.location.pathname.includes("/kontak-kami")
-      ? ".."
-      : ".";
+  // Deteksi apakah halaman di root atau subfolder, dengan pengecekan URL detail blog
+  const basePath = (() => {
+    const pathname = window.location.pathname;
+    if (pathname.includes("/hubungi-kami") ||
+        pathname.includes("/testimonial") ||
+        pathname.includes("/tentang-kami") ||
+        pathname.includes("/blog")) {
+      // Cek apakah ini halaman detail blog, berdasarkan URL yang mengandung /blog/detail/
+     const blogDetailMatch = pathname.match(/\/blog\/detail\/\d+\/.+/); // Pencocokan angka dan nama artikel setelah /blog/detail/
+      if (blogDetailMatch) {
+        return "..";  // Kembali ke folder dasar jika diperlukan
+      }
+    }
+    return "."; // Default untuk halaman lain
+  })();
 
   // Muat header dan footer
   await loadComponent("header", `${basePath}/components/header.html`);
   await loadComponent("footer", `${basePath}/components/footer.html`);
 
-  // Muat komponen tambahan (WhatsApp widget dan menu responsif)
+  // Muat komponen tambahan (Widget WhatsApp dan menu responsif)
   await loadComponent("#whatsapp-container", `${basePath}/components/whatsapp-widget.html`);
   await loadComponent("#menu-responsive-container", `${basePath}/components/responsive-menu.html`);
 
@@ -45,6 +54,3 @@ document.addEventListener("DOMContentLoaded", async () => {
     bindMenuEvents();
   }
 });
-
-
-
