@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Tentukan basePath berdasarkan URL
   const basePath = (() => {
     const pathname = window.location.pathname;
-    
+
     // Naik dua level 
     if (pathname.includes("/blog/detail/")) {
       return "../../../";  // Naik dua folder
@@ -24,8 +24,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Naik satu level 
     if (pathname.includes("/tentang-kami") ||
-        pathname.includes("/testimonial") ||
-        pathname.includes("/hubungi-kami")) {
+      pathname.includes("/testimonial") ||
+      pathname.includes("/hubungi-kami")) {
       return "..";  // Naik satu folder
     }
 
