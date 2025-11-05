@@ -1,7 +1,24 @@
 {
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/(.*)",  // Semua halaman
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains; preload"
+        }
+      ]
+    },
+    {
+      "source": "/blog/detail/*.html",  // Hanya untuk file .html di dalam /blog/detail/
       "headers": [
         {
           "key": "Cache-Control",
