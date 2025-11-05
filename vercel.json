@@ -1,13 +1,8 @@
 {
   "rewrites": [
     {
-<<<<<<< HEAD
       "source": "/blog/detail/:slug",  
       "destination": "/blog/detail/:slug.html"  
-=======
-      "source": "/blog/detail/:slug",
-      "destination": "/blog/detail/:slug.html"
->>>>>>> 5c8280525a50649bd0fd5dd967393cebc214c03e
     }
   ]
 }
