@@ -1,3 +1,5 @@
+//
+//
 document.addEventListener("DOMContentLoaded", async () => {
   // Fungsi untuk memuat komponen HTML ke dalam elemen yang ditentukan
   async function loadComponent(selector, filePath) {
