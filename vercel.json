@@ -1,13 +1,8 @@
 {
-  "headers": [
+  "rewrites": [
     {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-store"
-        }
-      ]
+      "source": "/blog/detail/:id",
+      "destination": "/blog/detail/:id.html"
     }
   ]
 }
