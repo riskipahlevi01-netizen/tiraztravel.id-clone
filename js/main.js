@@ -1,6 +1,3 @@
-// ===============================================================
-// === LOAD HEADER & FOOTER DINAMIS (MODULAR WEBSITE) ============
-// ===============================================================
 document.addEventListener("DOMContentLoaded", async () => {
   // Fungsi untuk memuat komponen HTML ke dalam elemen yang ditentukan
   async function loadComponent(selector, filePath) {
@@ -16,20 +13,24 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   }
 
-  // Deteksi apakah halaman di root atau subfolder, dengan pengecekan URL detail blog
+  // Tentukan basePath berdasarkan URL
   const basePath = (() => {
     const pathname = window.location.pathname;
-    if (pathname.includes("/hubungi-kami") ||
-        pathname.includes("/testimonial") ||
-        pathname.includes("/tentang-kami") ||
-        pathname.includes("/blog")) {
-      // Cek apakah ini halaman detail blog, berdasarkan URL yang mengandung /blog/detail/
-     const blogDetailMatch = pathname.match(/\/blog\/detail\/\d+\/.+/); // Pencocokan angka dan nama artikel setelah /blog/detail/
-      if (blogDetailMatch) {
-        return "..";  // Kembali ke folder dasar jika diperlukan
-      }
+    
+    // Naik dua level 
+    if (pathname.includes("/blog/detail/")) {
+      return "../../../";  // Naik dua folder
     }
-    return "."; // Default untuk halaman lain
+
+    // Naik satu level 
+    if (pathname.includes("/tentang-kami") ||
+        pathname.includes("/testimonial") ||
+        pathname.includes("/hubungi-kami")) {
+      return "..";  // Naik satu folder
+    }
+
+    // Default jika berada di root atau folder yang sama
+    return "."; // Default
   })();
 
   // Muat header dan footer
