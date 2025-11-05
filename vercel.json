@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/blog/detail/:folder/:slug.html",
-      "destination": "/blog/detail/:folder/:slug.html"
+      "source": "/blog/detail/:id/:slug",  
+      "destination": "/blog/detail/:id/:slug.html"  
     }
   ]
 }
